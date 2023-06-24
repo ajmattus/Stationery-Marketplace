@@ -1,2 +1,2 @@
-# Stationary-Marketplace
+# Stationery-Marketplace
 Solo Project
