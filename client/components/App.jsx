@@ -8,7 +8,8 @@ class App extends Component {
       <li>
         <ul>Bread</ul>
         <ul>Milk</ul>
-        <ul>Snow</ul>
+        <ul>Rain</ul>
+        <ul>Water</ul>
       </li>
     )
   }
