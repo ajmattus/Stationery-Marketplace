@@ -12,9 +12,10 @@ const stylesHandler = 'style-loader';
 
 
 const config = {
-    entry: './src/index.js',
+    entry: './client/index.js',
     output: {
-        path: path.resolve(__dirname, 'dist'),
+        path: path.resolve(__dirname, 'build'),
+        filename: 'bundle.js',
     },
     devServer: {
         open: true,
@@ -22,7 +23,7 @@ const config = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: 'index.html',
+            template: './index.html',
         }),
 
         // Add your plugins here
@@ -32,7 +33,11 @@ const config = {
         rules: [
             {
                 test: /\.(js|jsx)$/i,
+                exclude: /node_modules/,
                 loader: 'babel-loader',
+                options: {
+                    presets: ['@babel/preset-env', '@babel/preset-react'],
+                },
             },
             {
                 test: /\.css$/i,
