@@ -1,18 +1,23 @@
-import React, { Component } from 'react';
+import React from 'react';
+import Button from './Button.jsx';
 
-const test = <h1>Hello World</h1>
+const App = () => {
 
-class App extends Component {
-  render() {
-    return (
-      <li>
-        <ul>Bread</ul>
-        <ul>Milk</ul>
-        <ul>Rain</ul>
-        <ul>Water</ul>
-      </li>
-    )
+  const handleClick = () => {
+      console.log('Button clicked!');
   }
-}
+  
+      return (
+        <>
+        <Button onClick={handleClick} label='Here'></Button>
+        <ul>
+          <li>Bread</li>
+          <li>Milk</li>
+          <li>Rain</li>
+          <li>Water</li>
+        </ul>
+        </>
+      )
+}  
 
 export default App;
