@@ -18,8 +18,13 @@ const config = {
         filename: 'bundle.js',
     },
     devServer: {
-        open: true,
-        host: 'localhost',
+        compress: true,
+        port: 8080,
+        proxy: {
+            '/': {
+                target: 'http://localhost:3000',
+            },
+        },
     },
     plugins: [
         new HtmlWebpackPlugin({
