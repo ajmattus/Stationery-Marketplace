@@ -4,12 +4,33 @@ const path = require('path');
 
 const userController = require('../controllers/userControllers');
 
+const connectDB = require('./connectDB');
+
+connectDB();
+
 app.get('/water', userController.sayHello, (req, res) => {
   return res.status(200).sendFile(path.join(__dirname, '../index2.html'));
 });
 
-// statically serve everything in the build folder on the route '/build'
-// app.use('/build', express.static(path.join(__dirname, '../build')));
+app.post(
+  '/soda',
+  (req, res) => {
+    const sodaData = {
+      color: 'blue',
+      tip: 'needle',
+      ink: 'gel',
+    };
+  },
+  userController.add,
+  (req, res) => {
+    return res.status(200).sendFile(path.join(__dirname, '../index2.html'));
+  }
+);
+
+app.get('/soda', userController.find, (req, res) => {
+  return res.status(200).sendFile(path.join(__dirname, '../index2.html'));
+});
+
 // serve index.html on the route '/'
 app.get('/', (req, res) => {
   return res.status(200).sendFile(path.join(__dirname, '../index.html'));
