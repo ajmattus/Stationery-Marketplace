@@ -31,8 +31,12 @@ app.get('/soda', userController.find, (req, res) => {
   return res.status(200).sendFile(path.join(__dirname, '../index2.html'));
 });
 
+// app.get('/pink', (req, res) => {
+//   return res.status(200).sendFile(path.join(__dirname, '../index2.html'));
+// });
+
 // serve index.html on the route '/'
-app.get('/', (req, res) => {
+app.get('/#', (req, res) => {
   return res.status(200).sendFile(path.join(__dirname, '../index.html'));
 });
 

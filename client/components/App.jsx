@@ -13,9 +13,21 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import SignInSide from './SignInSide.jsx';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Checkout from './Checkout.jsx';
+import Review from './Review.jsx';
 
 const App = () => {
-  return (<SignInSide />)
-}
+    return (<Checkout></Checkout>)
+  }
+
+// const App = () => {
+//   return (<BrowserRouter>
+//     <Routes>
+//       <Route path="/" element={<Review></Review>}></Route>
+//       <Route path="/pink" element={<SignInSide></SignInSide>}></Route>
+//     </Routes>
+//   </BrowserRouter>)
+// }
 
 export default App;
