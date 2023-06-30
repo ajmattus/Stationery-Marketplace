@@ -15,12 +15,15 @@ const config = {
     filename: 'bundle.js',
     publicPath: '/'
   },
+  mode: 'development',
   devServer: {
-    compress: true,
+    host: 'localhost',
     port: 8080,
+    hot: true,
     proxy: {
       '/': {
         target: 'http://localhost:3000',
+        secure: false,
       },
     },
     historyApiFallback: true,

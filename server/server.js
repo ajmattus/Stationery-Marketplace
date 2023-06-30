@@ -3,10 +3,18 @@ const app = express();
 const path = require('path');
 
 const userController = require('../controllers/userControllers');
+const authRoute = require('../routes/auth.js')
 
 const connectDB = require('./connectDB');
 
 connectDB();
+
+// Serve static images
+app.use('../client/images/', express.static('images'))
+
+app.use('/api/auth', authRoute, (req, res) => {
+  res.status(201).send('this should have added to the db')
+})
 
 app.get('/water', userController.sayHello, (req, res) => {
   return res.status(200).sendFile(path.join(__dirname, '../index2.html'));
@@ -36,7 +44,7 @@ app.get('/soda', userController.find, (req, res) => {
 // });
 
 // serve index.html on the route '/'
-app.get('/#', (req, res) => {
+app.get('/', (req, res) => {
   return res.status(200).sendFile(path.join(__dirname, '../index.html'));
 });
 

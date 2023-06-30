@@ -1,14 +1,5 @@
 const mongoose = require('mongoose');
 
-
-// Users
-const usersSchema = new mongoose.Schema({
-  first_name: String,
-  last_name: String,
-  email_address: String,
-  password: String,
-});
-
 // Products
 const productsSchema = new mongoose.Schema({
   SKU: Number,
@@ -17,19 +8,46 @@ const productsSchema = new mongoose.Schema({
   ink_type: String,
   tip_type: String,
   line_width: String,
+  image: String,
+  name: String,
 })
 
 // Orders
 const ordersSchema = new mongoose.Schema({
-  order_number: Number,
-  shipping_method: String,
-  subtotal: Number,
-  tax: Number,
-  total: Number,
+  userId: { type: String, required: true },
+  products: [
+    {
+      productId: {
+        type: String,
+      },
+      quantity: {
+        type: Number,
+        default: 1,
+      }
+    }
+  ],
+  amount: { type: Number, required: true },
+  address: { type: Object, required: true },
+  status: {type: String, default: "pending"},
 })
 
-const Users = mongoose.model('Users', usersSchema)
+const cartSchema = new mongoose.Schema({
+  userId: { type: String, required: true },
+  products: [
+    {
+      productId: {
+        type: String,
+      },
+      quantity: {
+        type: Number,
+        default: 1,
+      }
+    }
+  ]
+})
+
 const Products = mongoose.model('Products', productsSchema);
 const Orders = mongoose.model('Orders', ordersSchema)
+const Cart = mongoose.model('Cart', cartSchema)
 
-module.exports = { Users, Products, Orders }
+module.exports = { Products, Orders, Cart }

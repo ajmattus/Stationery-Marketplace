@@ -16,9 +16,11 @@ import SignInSide from './SignInSide.jsx';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Checkout from './Checkout.jsx';
 import Review from './Review.jsx';
+import ProductPage from './ProductPage.jsx';
+import AddressForm from './AddressForm.jsx';
 
 const App = () => {
-    return (<Checkout></Checkout>)
+    return <Review />
   }
 
 // const App = () => {
