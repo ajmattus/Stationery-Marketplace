@@ -31,6 +31,7 @@ const config = {
   plugins: [
     new HtmlWebpackPlugin({
       template: './index.html',
+      inject: true,
     }),
 
     // Add your plugins here

@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 
-const Products = require('../server/models/models');
+const Products = require('../server/models/Products');
 
 const userController = {
   sayHello: function (req, res, next) {

@@ -10,48 +10,48 @@ const connectDB = require('./connectDB');
 connectDB();
 
 // Serve static images
-app.use('../client/images/', express.static('images'))
+// app.use('../client/images/', express.static('images'))
 
-app.use('/api/auth', authRoute, (req, res) => {
-  res.status(201).send('this should have added to the db')
-})
+// app.use('/api/auth', authRoute, (req, res) => {
+//   res.status(201).send('this should have added to the db')
+// })
 
-app.get('/water', userController.sayHello, (req, res) => {
-  return res.status(200).sendFile(path.join(__dirname, '../index2.html'));
-});
+// app.get('/water', userController.sayHello, (req, res) => {
+//   return res.status(200).sendFile(path.join(__dirname, '../index2.html'));
+// });
 
-app.post(
-  '/soda',
-  (req, res) => {
-    const sodaData = {
-      color: 'blue',
-      tip: 'needle',
-      ink: 'gel',
-    };
-  },
-  userController.add,
-  (req, res) => {
-    return res.status(200).sendFile(path.join(__dirname, '../index2.html'));
-  }
-);
+// app.post(
+//   '/soda',
+//   (req, res) => {
+//     const sodaData = {
+//       color: 'blue',
+//       tip: 'needle',
+//       ink: 'gel',
+//     };
+//   },
+//   userController.add,
+//   (req, res) => {
+//     return res.status(200).sendFile(path.join(__dirname, '../index2.html'));
+//   }
+// );
 
-app.get('/soda', userController.find, (req, res) => {
-  return res.status(200).sendFile(path.join(__dirname, '../index2.html'));
-});
+// app.get('/soda', userController.find, (req, res) => {
+//   return res.status(200).sendFile(path.join(__dirname, '../index2.html'));
+// });
 
 // app.get('/pink', (req, res) => {
 //   return res.status(200).sendFile(path.join(__dirname, '../index2.html'));
 // });
 
 // serve index.html on the route '/'
-app.get('/', (req, res) => {
-  return res.status(200).sendFile(path.join(__dirname, '../index.html'));
-});
+// app.get('/', (req, res) => {
+//   return res.status(200).sendFile(path.join(__dirname, '../index.html'));
+// });
 
 // Unknown route handler for everything that doesn't have a valid endpoint
-app.get('*', (req, res) => {
-  res.status(404).send(`Not Found`);
-});
+// app.get('*', (req, res) => {
+//   return res.status(200).sendFile(path.join(__dirname, '../index.html'));
+// });
 
 // Global error handler that ONLY gets triggered in the middleware chain
 app.use((err, req, res, next) => {
