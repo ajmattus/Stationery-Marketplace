@@ -1,15 +1,12 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom/client';
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from 'react-router-dom';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import App from './components/App.jsx';
-import SignInSide from './components/SignInSide.jsx';
+import SignInSide from './components/SignIn.jsx';
 import Checkout from './components/Checkout.jsx';
 import ProductPage from './components/ProductPage.jsx';
 import Review from './components/Review.jsx';
-import PaymentForm from './components/PaymentForm.jsx'
+import PaymentForm from './components/PaymentForm.jsx';
 
 // uncomment so that webpack can bundle styles
 // import styles from './scss/application.scss';
@@ -28,7 +25,7 @@ const router = createBrowserRouter([
     element: <Checkout />,
   },
   {
-    path:'/checkout/review/payment',
+    path: '/checkout/review/payment',
     element: <PaymentForm />,
   },
   // {
@@ -37,13 +34,13 @@ const router = createBrowserRouter([
   // },
   {
     path: 'checkout/review',
-    element: <Review />
-  }
+    element: <Review />,
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     {/* <RouterProvider router={router} /> */}
-    <App/>
+    <App />
   </React.StrictMode>
 );

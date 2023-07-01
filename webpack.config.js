@@ -10,18 +10,18 @@ const stylesHandler = 'style-loader';
 
 const config = {
   entry: './client/index.js',
-  output: {
-    path: path.resolve(__dirname, 'build'),
-    filename: 'bundle.js',
-    publicPath: '/'
-  },
+  // output: {
+  //   path: path.resolve(__dirname, 'build'),
+  //   filename: 'bundle.js',
+  //   publicPath: '/'
+  // },
   mode: 'development',
   devServer: {
     host: 'localhost',
     port: 8080,
     hot: true,
     proxy: {
-      '/': {
+      '/api/**': {
         target: 'http://localhost:3000',
         secure: false,
       },

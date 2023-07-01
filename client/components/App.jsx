@@ -12,12 +12,12 @@ import Grid from '@mui/material/Grid';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import SignInSide from './SignInSide.jsx';
+import SignInSide from './SignIn.jsx';
 import { BrowserRouter, Route, Routes, NavLink, Router} from 'react-router-dom';
 import Checkout from './Checkout.jsx';
 import Review from './Review.jsx';
 import ProductPage from './ProductPage.jsx';
-import AddressForm from './AddressForm.jsx';
+import PaymentForm from './PaymentForm.jsx';
 
 // const App = () => {
 //     return <Review />
@@ -39,6 +39,8 @@ const App = () => {
       <Routes>
         <Route index element={<SignInSide/>} />
         <Route path='/checkout' element={<div>This is checkout</div>} />
+        <Route path='/review' element={<Review/>} />
+        <Route path='/payment' element={<PaymentForm/>} />
         <Route path='*' element={<div>This is an error</div>} />
       </Routes>
       </BrowserRouter>
